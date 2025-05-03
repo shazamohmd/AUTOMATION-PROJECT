@@ -101,14 +101,17 @@ jobs:
      IMAGE_URI: ${{ needs.build.outputs.IMAGE_URI }}
     steps:
 
-     - name: setting image 
-       run: |
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: setting image 
+      run: |
          git pull origin main
          echo "IMAGE_URI is: '$IMAGE_URI'"
          sed -i "s#${IMAGE_URI}#IMAGE#g" ../terraform/terraform.tfvars
 
-     - uses: stefanzweifel/git-auto-commit-action@v5
-       name: commit changes
+    - uses: stefanzweifel/git-auto-commit-action@v5
+      name: commit changes
     
 
       
