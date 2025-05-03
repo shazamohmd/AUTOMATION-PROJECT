@@ -108,7 +108,7 @@ jobs:
     - name: setting image to default for future runs
       run: |
          IMAGE_URI="IMAGE"
-         sed -i "s#^container_image *= *\".*\"#image_uri = \"$IMAGE_URI\"#" terraform/terraform.tfvars
+         sed -i "s#^container_image *= *\".*\"#container_image = \"$IMAGE_URI\"#" terraform/terraform.tfvars
 
     - uses: stefanzweifel/git-auto-commit-action@v5
       name: commit changes
