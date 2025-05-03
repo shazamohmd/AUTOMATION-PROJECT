@@ -95,7 +95,9 @@ jobs:
        run: terraform apply --auto-approve
 
      - name: setting image 
-       run: sed -i "s#${{ needs.build.outputs.IMAGE_URI }}#IMAGE#g" ../terraform/terraform.tfvars
+       run: |
+        echo "IMAGE_URI is: '${IMAGE_URI}'"
+         sed -i "s#${{ needs.build.outputs.IMAGE_URI }}#IMAGE#g" ../terraform/terraform.tfvars
 
      - uses: stefanzweifel/git-auto-commit-action@v5
        name: commit changes
