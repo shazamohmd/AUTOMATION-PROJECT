@@ -23,7 +23,7 @@ jobs:
     - uses: super-linter/super-linter@v5.7.2
       name: Super-Linter
       with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
         VALIDATE_YAML: false
   build:
     runs-on: ubuntu-latest
@@ -61,8 +61,8 @@ jobs:
           echo "passing image name" 
           sed -i "s/IMAGE/$IMAGE_URI/g" ./terraform/terraform.tfvars
   
-     - uses: stefanzweifel/git-auto-commit-action@v5
-       name: commit changes
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        name: commit changes
 
   deploy:
     runs-on: ubuntu-latest
