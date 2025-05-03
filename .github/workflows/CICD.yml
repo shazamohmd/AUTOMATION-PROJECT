@@ -24,6 +24,7 @@ jobs:
       name: Super-Linter
       with:
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        VALIDATE_ALL_CODEBASE: false
         VALIDATE_YAML: false
   build:
     runs-on: ubuntu-latest
