@@ -99,18 +99,16 @@ jobs:
     needs: deploy
     defaults:
       run:
-        working-directory: app/
-    env: 
-     IMAGE_URI: ${{ needs.build.outputs.IMAGE_URI }}
+        working-directory: terraform/
     steps:
 
     - name: Check out code
       uses: actions/checkout@v2
 
-    - name: setting image 
+    - name: setting image to default for future runs
       run: |
-         echo "IMAGE_URI is: '${{ env.IMAGE_URI }}'"
-         sed -i "s#${{ env.IMAGE_URI }}#IMAGE#g" ../terraform/terraform.tfvars
+         IMAGE_URI="IMAGE"
+         sed -i "s#^container_image *= *\".*\"#image_uri = \"$IMAGE_URI\"#" terraform/terraform.tfvars
 
     - uses: stefanzweifel/git-auto-commit-action@v5
       name: commit changes
