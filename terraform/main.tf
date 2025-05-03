@@ -18,7 +18,6 @@ module "task" {
   source = "./Module/task"
 
   project_name    = var.project_name
-  aws_region      = var.aws_region
   container_image = var.container_image
   container_port  = var.container_port
   task_cpu        = var.task_cpu
