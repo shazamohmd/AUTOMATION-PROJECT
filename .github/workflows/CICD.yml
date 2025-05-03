@@ -57,6 +57,8 @@ jobs:
           ECR_REGISTRY=${{ steps.login-ecr.outputs.registry }}
           IMAGE_URI=$ECR_REGISTRY/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
 
+          echo "IMAGE_URI=$ECR_REGISTRY/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}" >> $GITHUB_OUTPUT
+
           echo "Building image: $IMAGE_URI"
           docker build -t $IMAGE_URI .
 
@@ -95,9 +97,7 @@ jobs:
        run: terraform apply --auto-approve
 
      - name: setting image 
-       run: |
-        echo "IMAGE_URI is: '${IMAGE_URI}'"
-         sed -i "s#${{ needs.build.outputs.IMAGE_URI }}#IMAGE#g" ../terraform/terraform.tfvars
+       run: sed -i "s#${IMAGE_URI}#IMAGE#g" ../terraform/terraform.tfvars
 
      - uses: stefanzweifel/git-auto-commit-action@v5
        name: commit changes
