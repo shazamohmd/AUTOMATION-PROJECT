@@ -1,4 +1,4 @@
-name: Terraform-GitHub-Actions
+name: Terraform-CD
 on:
   workflow_dispatch:
   
@@ -6,10 +6,9 @@ env:
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 jobs:
-  build_development:
-    name: build_development
+  deploy:
+    name: deploy
     runs-on: ubuntu-latest
-    environment: Development
     env:
       TF_VAR_aws_region: ${{ vars.AWS_REGION }}
     steps:
