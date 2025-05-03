@@ -98,6 +98,7 @@ jobs:
 
      - name: setting image 
        run: |
+         git pull origin main
          echo "IMAGE_URI is: '$IMAGE_URI'"
          sed -i "s#${IMAGE_URI}#IMAGE#g" ../terraform/terraform.tfvars
 
