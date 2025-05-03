@@ -97,6 +97,9 @@ jobs:
   set:
     runs-on: ubuntu-latest
     needs: deploy
+    defaults:
+      run:
+        working-directory: app/
     env: 
      IMAGE_URI: ${{ needs.build.outputs.IMAGE_URI }}
     steps:
@@ -106,9 +109,8 @@ jobs:
 
     - name: setting image 
       run: |
-         git pull origin main
-         echo "IMAGE_URI is: '$IMAGE_URI'"
-         sed -i "s#${IMAGE_URI}#IMAGE#g" ../terraform/terraform.tfvars
+         echo "IMAGE_URI is: '${{ env.IMAGE_URI }}'"
+         sed -i "s#${{ env.IMAGE_URI }}#IMAGE#g" ../terraform/terraform.tfvars
 
     - uses: stefanzweifel/git-auto-commit-action@v5
       name: commit changes
