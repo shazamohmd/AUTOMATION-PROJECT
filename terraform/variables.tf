@@ -3,13 +3,13 @@ variable "aws_region" {
   type        = string
 }
 variable "vpc_cidr" {
-  description= "The VPC range"
-  type= string
+  description = "The VPC range"
+  type        = string
 }
 
 variable "subnet_cidr" {
-  description= "The subnet range"
-  type= string
+  description = "The subnet range"
+  type        = string
 }
 variable "project_name" {
   description = "Name of the project"

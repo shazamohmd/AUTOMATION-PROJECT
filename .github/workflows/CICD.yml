@@ -22,8 +22,8 @@ jobs:
     
     - uses: super-linter/super-linter@v5.7.2
       name: Super-Linter
-      with:
-        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         VALIDATE_ALL_CODEBASE: false
         VALIDATE_YAML: false
   build:

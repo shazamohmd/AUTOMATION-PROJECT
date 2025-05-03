@@ -1,7 +1,7 @@
 # Create IAM role for ECS Task Execution
 resource "aws_iam_role" "ecs_task_execution_role" {
   name = "${var.project_name}-ecs-execution-role"
-  
+
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
@@ -25,7 +25,7 @@ resource "aws_iam_role_policy_attachment" "ecs_task_execution_role_policy" {
 # Create IAM role for ECS Task
 resource "aws_iam_role" "ecs_task_role" {
   name = "${var.project_name}-ecs-task-role"
-  
+
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
@@ -49,12 +49,12 @@ resource "aws_ecs_task_definition" "task_definition" {
   memory                   = var.task_memory
   execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
   task_role_arn            = aws_iam_role.ecs_task_role.arn
-  
+
   container_definitions = jsonencode([
     {
-      name         = "${var.project_name}-container"
-      image        = var.container_image
-      essential    = true
+      name      = "${var.project_name}-container"
+      image     = var.container_image
+      essential = true
       portMappings = [
         {
           containerPort = var.container_port
@@ -64,7 +64,7 @@ resource "aws_ecs_task_definition" "task_definition" {
       ]
     }
   ])
-  
+
 }
 output "task_definition_arn" {
   description = "The ARN of the task definition"
