@@ -61,7 +61,7 @@ jobs:
           docker push $IMAGE_URI
 
           echo "passing image name" 
-          sed -i "s/IMAGE/$IMAGE_URI/g" ./terraform/terraform.tfvars
+          sed -i "s#IMAGE#$IMAGE_URI#g" ./terraform/terraform.tfvars
   
       - uses: stefanzweifel/git-auto-commit-action@v5
         name: commit changes
@@ -90,7 +90,7 @@ jobs:
        run: terraform apply --auto-approve
 
      - name: setting image 
-       run: sed -i "s/$IMAGE_URI/IMAGE/g" ./terraform/terraform.tfvars
+       run: sed -i "s#$IMAGE_URI#IMAGE#g" ./terraform/terraform.tfvars
 
      - uses: stefanzweifel/git-auto-commit-action@v5
        name: commit changes
