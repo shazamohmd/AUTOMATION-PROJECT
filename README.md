@@ -83,7 +83,7 @@ git clone https://github.com/shazamohmd/AUTOMATION-PROJECT.git
 cd AUTOMATION-PROJECT     
 ```
 
-#### Update the Terraform files with your desired configurations(you can also replace with your own Dockerfile).
+#### Update the Terraform files with your desired configurations (you can also replace with your own Dockerfile).
 
 
 #### Trigger the CI/CD workflow by committing your changes
