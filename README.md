@@ -64,3 +64,14 @@ Add your AWS Credentials as secrets
 
 ![8](https://github.com/user-attachments/assets/23073f16-037f-4581-a057-c48fc37784ea)
 
+**2. Locally**
+
+```bash
+AWS Configure       
+```
+
+![9](https://github.com/user-attachments/assets/bba434fa-8e98-4078-8c9f-74a42d2ec58b)
+
+
+
+
