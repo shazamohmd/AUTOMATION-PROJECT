@@ -14,7 +14,7 @@ This project helps you automate the deployment of your containerized application
 
 ## Setup Instructions
 ### Prerequisites
-**Firstly**, ensure you have the following installed locally on your machine:
+#### **Firstly**, ensure you have the following installed locally on your machine:
 
 **1. Git**
 
@@ -45,7 +45,7 @@ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip
 unzip awscliv2.zip
 sudo ./aws/install      
 ```
-**Secondly**, ensure you create the following from your AWS console:
+#### **Secondly**, ensure you create the following from your AWS console:
 
 **1.  S3 bucket**: Store your remote backend(terraform state file).
 
@@ -53,10 +53,14 @@ sudo ./aws/install
 
 **3. I am user**: I am user with admin permissions and create an access key.
 
-**Lastly**, set up your credentials:
+#### **Lastly**, set up your credentials:
 
 **1. Github Actions**
  
 Scroll down in the settings tab of your repository, tap on Secrets and Variables, select Actions 
 ![7](https://github.com/user-attachments/assets/f72c7ee8-db11-4421-87f1-5736eeab8f9b)
-Add your AWS Access Key ID 
+
+Add your AWS Credentials as secrets
+
+![8](https://github.com/user-attachments/assets/23073f16-037f-4581-a057-c48fc37784ea)
+
