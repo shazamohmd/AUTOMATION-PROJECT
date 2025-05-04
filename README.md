@@ -118,4 +118,6 @@ This workflow handles destroying all the AWS resources by triggering it manually
 
 **Note: You must stop running containers from the AWS console before running this workflow.**
 
+## Conclusion
+This project demonstrates a complete end-to-end automation pipeline for deploying containerized applications using DevOps tools such as Terraform, GitHub Actions, Docker, and AWS, you can build, test, deploy, and manage your infrastructure and applications.
 
