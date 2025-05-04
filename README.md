@@ -72,6 +72,50 @@ AWS Configure
 
 ![9](https://github.com/user-attachments/assets/bba434fa-8e98-4078-8c9f-74a42d2ec58b)
 
+## Usage
 
+After setting up everything, you can now start using this repo!
+
+**Clone the Repository**
+
+```bash
+git clone https://github.com/shazamohmd/AUTOMATION-PROJECT.git
+cd AUTOMATION-PROJECT     
+```
+
+#### Update the Terraform files with your desired configurations(you can also replace with your own Dockerfile).
+
+
+#### Trigger the CI/CD workflow by committing your changes
+
+## Workflows 
+### CI/CD 
+This workflow handles the following:
+
+**1. Lint the application code**
+
+**2. Build a Docker image for the application**
+
+**3. Upload the image to AWS ECR**
+
+**4. Update the mage URI in the variables file**
+
+**5. Deploy the required infrastructure using Terraform to host the application:**
+
+* Creates an ECS Cluster
+
+* Configures needed networks (VPC, Public subnet, Internet Gateway, Security Groups)
+
+* Creates a Task definition with the desired configuration
+
+* Executes the task with the image from ECR
+
+**6. Set the image URI back to the default for future runs of this workflow**
+
+### Terraform-Destroy
+
+This workflow handles destroying all the AWS resources by triggering it manually.
+
+**Note: You must stop running containers from the AWS console before running this workflow.**
 
 
