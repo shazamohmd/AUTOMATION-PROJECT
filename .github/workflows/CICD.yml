@@ -94,6 +94,7 @@ jobs:
 
      - name: setting image to default for future runs
        run: |
+         git pull
          sed -i "s#^container_image *= *\".*\"#container_image = \"IMAGE\"#" terraform.tfvars
 
      - uses: stefanzweifel/git-auto-commit-action@v5
