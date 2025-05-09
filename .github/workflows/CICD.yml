@@ -63,11 +63,8 @@ jobs:
 
           echo "Pushing image to ECR"
           docker push $IMAGE_URI
-
-
-      - name: passing image name
-        run: |
-         sed -i "s#^container_image *= *\".*\"#container_image = \"$IMAGE_URI\"#" ../terraform/terraform.tfvars
+          echo "passing image name"
+          sed -i "s#^container_image *= *\".*\"#container_image = \"$IMAGE_URI\"#" ../terraform/terraform.tfvars
   
       - uses: stefanzweifel/git-auto-commit-action@v5
         name: commit changes
