@@ -1,3 +1,9 @@
+resource "aws_cloudwatch_log_group" "nlogs" {
+  name              = "/ecs/nodeapp"
+  retention_in_days = 7
+}
+
+
 module "networks" {
   source = "./Module/networks"
 
