@@ -40,10 +40,7 @@ resource "aws_iam_role" "ecs_task_role" {
   })
 }
 
-locals {
-  # Use a default image if "IMAGE" is specified
-  container_image = var.container_image == "IMAGE" ? "amazon/amazon-ecs-sample:latest" : var.container_image
-}
+
 
 # Create ECS Task Definition
 resource "aws_ecs_task_definition" "task_definition" {
@@ -58,7 +55,7 @@ resource "aws_ecs_task_definition" "task_definition" {
   container_definitions = jsonencode([
     {
       name      = "${var.project_name}-container"
-      image     = local.container_image
+      image     = var.container_image
       essential = true
       portMappings = [
         {
