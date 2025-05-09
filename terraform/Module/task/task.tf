@@ -40,6 +40,11 @@ resource "aws_iam_role" "ecs_task_role" {
   })
 }
 
+locals {
+  # Use a default image if "IMAGE" is specified
+  container_image = var.container_image == "IMAGE" ? "amazon/amazon-ecs-sample:latest" : var.container_image
+}
+
 # Create ECS Task Definition
 resource "aws_ecs_task_definition" "task_definition" {
   family                   = "${var.project_name}-task"
