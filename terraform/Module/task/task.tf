@@ -62,7 +62,14 @@ resource "aws_ecs_task_definition" "task_definition" {
           protocol      = "tcp"
         }
       ]
+    logConfiguration = {
+      logDriver = "awslogs",
+      options = {
+        awslogs-region        = "us-east-1"
+        awslogs-stream-prefix = "ecs"
+      }
     }
+  }
   ])
 
 }
