@@ -65,6 +65,7 @@ resource "aws_ecs_task_definition" "task_definition" {
     logConfiguration = {
       logDriver = "awslogs",
       options = {
+        awslogs-group         = "/ecs/nodeapp"
         awslogs-region        = "us-east-1"
         awslogs-stream-prefix = "ecs"
       }
