@@ -67,7 +67,7 @@ jobs:
 
       - name: passing image name
         run: |
-         sed -i "s#^container_image *= *\".*\"#container_image = \"$IMAGE_URI\"#" terraform.tfvars
+         sed -i "s#^container_image *= *\".*\"#container_image = \"$IMAGE_URI\"#" ../terraform/terraform.tfvars
   
       - uses: stefanzweifel/git-auto-commit-action@v5
         name: commit changes
