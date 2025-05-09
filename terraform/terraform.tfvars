@@ -6,7 +6,7 @@ subnet_cidr = "192.168.1.0/24"
 
 project_name = "nodeapp"
 
-container_image = ""
+container_image = "339713048661.dkr.ecr.us-east-1.amazonaws.com/nodejs:node-hello-app"
 
 container_port = 3000
 
