@@ -63,7 +63,7 @@ jobs:
 
           echo "Pushing image to ECR"
           docker push $IMAGE_URI
-          echo "passing image name
+          echo "passing image name"
           sed -i "s#IMAGE#$IMAGE_URI#g" ../terraform/terraform.tfvars
   
       - uses: stefanzweifel/git-auto-commit-action@v5
