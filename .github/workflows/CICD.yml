@@ -115,14 +115,16 @@ jobs:
       uses: actions/checkout@v3
       with:
          ref: ${{ needs.build.outputs.sha || github.sha }}
+         fetch-depth: 0
 
     - name: setting image to default for future runs
       run: |
          sed -i "s#^container_image *= *\".*\"#container_image = \"IMAGE\"#" terraform.tfvars
 
     - uses: stefanzweifel/git-auto-commit-action@v5
-      name: commit changes
+      name: commit changes 
       with:
+        branch: main
         commit_message: "Reset container_image to default value"
 
 
