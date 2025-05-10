@@ -36,6 +36,8 @@ jobs:
     defaults:
       run:
         working-directory: app/
+    outputs:
+      sha: ${{ steps.auto-commit.outputs.commit_hash }}
 
     steps:
       - name: Checkout code
