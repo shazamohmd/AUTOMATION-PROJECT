@@ -100,23 +100,7 @@ jobs:
      - name: Terraform Apply
        run: terraform apply --auto-approve
 
-  set:
-    runs-on: ubuntu-latest
-    needs: deploy
-    defaults:
-      run:
-        working-directory: terraform/
-    steps:
 
-    - name: Check out code
-      uses: actions/checkout@v3
-
-    - name: setting image to default for future runs
-      run: |
-         sed -i "s#^container_image *= *\".*\"#container_image = \"IMAGE\"#" terraform.tfvars
-
-    - uses: stefanzweifel/git-auto-commit-action@v5
-      name: commit changes
 
 
 
