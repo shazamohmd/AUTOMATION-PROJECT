@@ -92,7 +92,7 @@ jobs:
      - name: Set up Terraform
        uses: hashicorp/setup-terraform@v1
               
-     - name: Terraform Init
+     - name: Terraform Initi
        run: terraform init
               
      - name: Terraform Plan
